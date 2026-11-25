@@ -122,10 +122,10 @@ button{font:inherit;cursor:pointer}
 .sp .f{font-family:Panchang;font-weight:400;font-size:14px;line-height:1.45;margin-bottom:8px;color:var(--ink)}
 .sp p{font-size:15px;color:var(--soft)}
 .mat .intro{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,5vw,72px);align-items:center;margin-bottom:clamp(40px,6vw,80px)}
-.mat .intro img{width:100%;border-radius:14px;display:block}
+.mat .intro img{width:100%;display:block}
 .mat .intro p{color:var(--soft);font-size:17px}
 .mgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
-.mgrid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block;margin-bottom:14px}
+.mgrid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:14px}
 .mgrid h3{margin-bottom:4px}.mgrid small{display:block;color:var(--olive-ink);font-weight:500;font-size:13px;margin-bottom:8px}
 .mgrid p{font-size:15px;color:var(--soft)}
 @media(max-width:900px){.mat .intro{grid-template-columns:minmax(0,1fr)}.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -153,6 +153,24 @@ footer{padding:40px max(5vw,16px);display:flex;flex-wrap:wrap;gap:16px 40px;just
 footer .logo{color:var(--ink)}
 .pal{display:flex;height:10px;width:100%;}
 .pal i{flex:1}
+/* formas SAVIA: facetas tomadas de las cubiertas plegadas */
+.sh{position:absolute;left:var(--x);top:var(--y);width:var(--w);transform:rotate(var(--r,0deg));pointer-events:none;z-index:0}
+.sh svg{display:block;width:100%;height:auto;overflow:visible}
+.sh polygon{fill:var(--c,var(--sand));stroke:none}
+.sh.line polygon{fill:none;stroke:var(--c,var(--sand));stroke-width:var(--sw,1.2px);stroke-linejoin:round}
+.band{position:relative;overflow:hidden}.band>.wrap{position:relative;z-index:1}
+.deco{position:absolute;inset:0 auto 0 0;width:var(--txt,40vw);pointer-events:none;
+  transform:translateY(calc(var(--f,0) * -12px))}
+.deco .sh{transform:rotate(calc(var(--r,0deg) + var(--f,0) * 3deg));transition:transform .2s linear}
+.kick i{border-radius:0;width:11px;height:14px;clip-path:var(--k)}
+.cta{position:relative;isolation:isolate}
+.cta .sh{left:-18px;top:-11px;right:-18px;bottom:-11px;width:auto;z-index:-1;transition:transform .35s ease}
+.cta .sh svg{width:100%;height:100%}
+.cta:hover .sh{transform:rotate(0deg) scale(1.04)}
+.masked{clip-path:var(--m);transition:clip-path .6s ease}
+.mframe{position:relative}
+.mframe .sh{z-index:2}
+@media(max-width:900px){.deco{display:none}.hm{display:none}.comm .sh:not(.cta .sh){opacity:.6}}
 .rv{opacity:0;transform:translateY(70px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 
@@ -191,6 +209,13 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
     <div class="fallback" id="fb"></div>
     <canvas id="gl" aria-label="Modelo 3D interactivo de SAVIA: arrastrá para girar, pasá el mouse por los pabellones"></canvas>
     <div class="veil"></div>
+    <div class="deco" aria-hidden="true">
+      <span class="sh line" data-s="1" style="--x:46%;--y:9%;--w:44%;--r:-6deg;--c:var(--sand)"></span>
+      <span class="sh" data-s="2" style="--x:6%;--y:13%;--w:24px;--r:8deg;--c:var(--olive)"></span>
+      <span class="sh line" data-s="9" style="--x:-6%;--y:74%;--w:38%;--r:4deg;--c:#cfcac0"></span>
+      <span class="sh" data-s="5" style="--x:70%;--y:80%;--w:15%;--r:-14deg;--c:#e8dfcf"></span>
+      <span class="sh" data-s="8" style="--x:88%;--y:27%;--w:28px;--r:12deg;--c:var(--sand)"></span>
+    </div>
     <div id="labels"></div>
 
     <article class="panel hero">
@@ -255,6 +280,8 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
 </section>
 
 <section class="band" id="espacios">
+  <span class="sh" data-s="4" aria-hidden="true" style="--x:58%;--y:-6%;--w:min(560px,60vw);--r:-8deg;--c:#f1eee8"></span>
+  <span class="sh line hm" data-s="0" aria-hidden="true" style="--x:-3%;--y:3%;--w:260px;--r:10deg;--c:var(--sand)"></span>
   <div class="wrap">
     <div class="head rv"><div><span class="kick"><i></i>Espacios</span><h2>Cómo se vive SAVIA</h2><p style="margin-top:12px">Cada área existe por una razón: esto es lo que aporta a quien la habita.</p></div>
       <div class="arrows"><button aria-label="Anterior" id="prev">←</button><button aria-label="Siguiente" id="next">→</button></div></div>
@@ -263,6 +290,8 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
 </section>
 
 <section class="band mat" id="materialidad">
+  <span class="sh line hm" data-s="7" aria-hidden="true" style="--x:84%;--y:56%;--w:260px;--r:-12deg;--c:#d9d9d9"></span>
+  <span class="sh hm" data-s="2" aria-hidden="true" style="--x:3%;--y:4%;--w:40px;--r:-10deg;--c:var(--sand)"></span>
   <div class="wrap">
     <div class="intro">
       <div class="rv">
@@ -271,18 +300,22 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
         <p>Las cubiertas nacen del mismo gesto que da nombre al proyecto. Como una hoja que se abre, cada techo se pliega en facetas, y sus aristas son las nervaduras por donde corre la savia. Ningún pabellón es igual a otro, pero todos hablan el mismo idioma, como las hojas de un mismo árbol.</p>
         <p>El pliegue no es solo forma: le da rigidez a una cubierta liviana, multiplica las sombras sobre el jardín y conduce el agua de lluvia hacia los tanques recolectores. Debajo, la arquitectura se abre y se vuelve permeable, y adentro y afuera se confunden.</p>
       </div>
-      <img class="rv" src="img/taller-cultural.webp" alt="Cubierta plegada del Taller Cultural vista desde arriba" loading="lazy">
+      <div class="mframe rv"><span class="sh line" data-s="4" aria-hidden="true" style="--x:-4%;--y:-6%;--w:106%;--r:-3deg;--c:var(--sand);--sw:1.5px"></span><img class="masked" data-m="4" src="img/taller-cultural.webp" alt="Cubierta plegada del Taller Cultural vista desde arriba" loading="lazy" style="width:100%;display:block"></div>
     </div>
     <div class="mgrid">
-      <div class="rv"><img src="img/mat-pliegue.webp" alt="" loading="lazy" style="object-position:30% 20%"><small>La hoja</small><h3>Cubierta plegada</h3><p>Superficie blanca que refleja el sol y da sombra fresca; sus pliegues la vuelven liviana y firme a la vez.</p></div>
-      <div class="rv" style="transition-delay:.1s"><img src="img/mat-madera.webp" alt="" loading="lazy"><small>El tronco</small><h3>Madera</h3><p>Listones verticales y decks que aportan calidez y textura al tacto, filtran la luz como un bosque y marcan los recorridos.</p></div>
-      <div class="rv" style="transition-delay:.2s"><img src="img/mat-vidrio.webp" alt="" loading="lazy"><small>La transparencia</small><h3>Vidrio</h3><p>Fachadas vidriadas que dejan ver lo que pasa adentro: el taller invita, el jardín entra y nadie queda aislado.</p></div>
-      <div class="rv" style="transition-delay:.3s"><img src="img/mat-hormigon.webp" alt="" loading="lazy"><small>La raíz</small><h3>Hormigón</h3><p>Canteros con cordón de hormigón y caminos con bandas de madera: la base firme que sostiene y ordena el verde.</p></div>
+      <div class="rv"><img class="masked" data-m="9" src="img/mat-pliegue.webp" alt="" loading="lazy" style="object-position:30% 20%"><small>La hoja</small><h3>Cubierta plegada</h3><p>Superficie blanca que refleja el sol y da sombra fresca; sus pliegues la vuelven liviana y firme a la vez.</p></div>
+      <div class="rv" style="transition-delay:.1s"><img class="masked" data-m="2" src="img/mat-madera.webp" alt="" loading="lazy"><small>El tronco</small><h3>Madera</h3><p>Listones verticales y decks que aportan calidez y textura al tacto, filtran la luz como un bosque y marcan los recorridos.</p></div>
+      <div class="rv" style="transition-delay:.2s"><img class="masked" data-m="6" src="img/mat-vidrio.webp" alt="" loading="lazy"><small>La transparencia</small><h3>Vidrio</h3><p>Fachadas vidriadas que dejan ver lo que pasa adentro: el taller invita, el jardín entra y nadie queda aislado.</p></div>
+      <div class="rv" style="transition-delay:.3s"><img class="masked" data-m="7" src="img/mat-hormigon.webp" alt="" loading="lazy"><small>La raíz</small><h3>Hormigón</h3><p>Canteros con cordón de hormigón y caminos con bandas de madera: la base firme que sostiene y ordena el verde.</p></div>
     </div>
   </div>
 </section>
 
 <section class="band posters" id="piezas">
+  <span class="sh" data-s="1" aria-hidden="true" style="--x:-6%;--y:8%;--w:34%;--r:-4deg;--c:#ffffff99"></span>
+  <span class="sh" data-s="8" aria-hidden="true" style="--x:80%;--y:2%;--w:14%;--r:10deg;--c:#ffffffb3"></span>
+  <span class="sh line" data-s="3" aria-hidden="true" style="--x:70%;--y:58%;--w:30%;--r:6deg;--c:#fff;--sw:1.5px"></span>
+  <span class="sh" data-s="6" aria-hidden="true" style="--x:30%;--y:78%;--w:22%;--r:-16deg;--c:#ffffff80"></span>
   <div class="wrap">
     <div class="head rv"><div><span class="kick"><i></i>Piezas gráficas</span><h2>Una identidad para comunicar</h2></div>
       <p>Pósters de la campaña: talleres, agenda diaria e invitación a participar.</p></div>
@@ -295,13 +328,19 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
 </section>
 
 <section class="band comm" id="comunidad">
+  <span class="sh line" data-s="0" aria-hidden="true" style="--x:-3%;--y:6%;--w:26%;--r:-8deg;--c:#8b865f"></span>
+  <span class="sh line" data-s="5" aria-hidden="true" style="--x:46%;--y:-10%;--w:18%;--r:14deg;--c:#8b865f"></span>
+  <span class="sh line hm" data-s="9" aria-hidden="true" style="--x:86%;--y:62%;--w:16%;--r:-20deg;--c:#8b865f"></span>
+  <span class="sh line hm" data-s="3" aria-hidden="true" style="--x:30%;--y:84%;--w:20%;--r:6deg;--c:#8b865f"></span>
+  <span class="sh hm" data-s="2" aria-hidden="true" style="--x:93%;--y:12%;--w:34px;--r:-6deg;--c:var(--sand)"></span>
+  <span class="sh" data-s="8" aria-hidden="true" style="--x:56%;--y:72%;--w:46px;--r:18deg;--c:#7d7850"></span>
   <div class="wrap cg">
     <div class="rv">
       <span class="kick" style="color:var(--sand)"><i></i>Comunidad</span>
       <h2 style="margin-bottom:20px">Formá parte de SAVIA</h2>
       <p>Creá tu cuenta en la app de SAVIA para sumarte a la comunidad. Desde ahí vas a poder:</p>
       <ul><li>Ver dónde queda SAVIA y cómo llegar a cada acceso.</li><li>Elegir los talleres a los que te querés anotar.</li><li>Seguir la agenda diaria de actividades.</li><li>Llevar tu seguimiento en las cabinas de salud.</li></ul>
-      <div class="chips" style="gap:12px"><a class="btn" href="app/">Crear mi cuenta en la app</a><a class="btn ghost" href="app/">Ya tengo cuenta</a></div>
+      <div class="chips" style="gap:12px"><a class="btn cta" href="app/"><span class="sh line" data-s="6" aria-hidden="true" style="--r:-3deg;--c:var(--sand);--sw:1.5px"></span>Crear mi cuenta en la app</a><a class="btn ghost" href="app/">Ya tengo cuenta</a></div>
     </div>
     <div class="agenda rv">
       <h3>Agenda del día</h3>
@@ -338,6 +377,18 @@ const Z={
   'acceso-thays':{n:'A',t:'Acceso Thays',e:'Bienvenida',img:'acceso-thays',f:'Toda raíz empieza en un umbral.',d:'Una recepción humana orienta, da confianza y convierte la primera visita en pertenencia.',acc:1},
   'acceso-puente':{n:'A',t:'Acceso Puente',e:'Bienvenida',img:'acceso-puente',f:'Llegar acompañado es llegar mejor.',d:'Mapa del ecosistema y personal que recibe: nadie tiene que descubrir el lugar solo.',acc:1}
 };
+/* formas */
+const SH=[[[107,143],[301,57],[467,48],[423,170],[288,147]],[[467,236],[653,49],[850,146],[819,262],[645,215]],[[557,308],[631,255],[706,308],[631,444],[557,511]],
+ [[247,428],[346,274],[491,382],[515,504],[366,421]],[[753,342],[887,367],[1025,343],[874,527],[705,519]],[[921,576],[1019,422],[1164,530],[1189,652],[1040,531]],
+ [[304,556],[430,556],[576,578],[576,669],[444,669]],[[649,600],[759,771],[721,862],[600,818],[477,834],[616,692]],[[889,653],[1025,653],[1025,849],[958,800],[866,775]],
+ [[64,835],[272,729],[381,720],[430,905],[257,835]]].map(p=>{const xs=p.map(q=>q[0]),ys=p.map(q=>q[1]),x0=Math.min(...xs),y0=Math.min(...ys);
+  return{w:Math.max(...xs)-x0,h:Math.max(...ys)-y0,p:p.map(([x,y])=>[x-x0,y-y0])}});
+const clip=i=>{const o=SH[i];return 'polygon('+o.p.map(([x,y])=>(x/o.w*100).toFixed(1)+'% '+(y/o.h*100).toFixed(1)+'%').join(',')+')'};
+document.querySelectorAll('.sh[data-s]').forEach(el=>{const o=SH[+el.dataset.s];
+  el.innerHTML=`<svg viewBox="0 0 ${o.w} ${o.h}" preserveAspectRatio="${el.closest('.cta')?'none':'xMidYMid meet'}"><polygon vector-effect="non-scaling-stroke" points="${o.p.map(q=>q.join(',')).join(' ')}"/></svg>`});
+document.querySelectorAll('[data-m]').forEach(el=>el.style.setProperty('--m',clip(+el.dataset.m)));
+document.querySelectorAll('.kick i').forEach((el,i)=>el.style.setProperty('--k',clip(2)));
+
 /* galería */
 const G=['acceso-thays','acceso-puente','cultural','artistico','cultivo','huertas','ejercitacion','cabinas','yoga','jardines','banos'];
 const rail=document.getElementById('rail');
@@ -362,7 +413,7 @@ const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 let F=0;
 function onScroll(){
   const r=stage.getBoundingClientRect(),tot=stage.offsetHeight-innerHeight;
-  const p=Math.min(1,Math.max(0,-r.top/tot));F=p*(N-1);prog.style.width=(p*100)+'%';
+  const p=Math.min(1,Math.max(0,-r.top/tot));F=p*(N-1);prog.style.width=(p*100)+'%';stage.firstElementChild.style.setProperty('--f',F.toFixed(3));
   const mob=innerWidth<=900;
   panels.forEach((el,i)=>{const x=F-i,a=Math.abs(x),d=Math.sign(x)*Math.max(0,a-.16)/.84;
     const y=-d*(mob?45:70),o=Math.max(0,1-Math.abs(d)*1.7);
