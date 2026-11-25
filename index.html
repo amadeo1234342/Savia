@@ -89,7 +89,7 @@ button{font:inherit;cursor:pointer}
 #card .n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:600 12px Inter;background:#1d1d1b;color:#fff;flex:none}
 #card small{font-size:13px;color:var(--olive-ink);font-weight:500}
 #card h3{margin-bottom:6px}
-#card p{font-size:14px;color:var(--soft);margin:0}
+#card p{font-size:14px;color:var(--soft);margin:0}#card p.f{font-family:Panchang;font-weight:400;font-size:13px;line-height:1.4;color:var(--ink);margin-bottom:6px}
 #card .x{position:absolute;top:8px;right:8px;width:36px;height:36px;border-radius:50%;border:0;background:#fffd;display:none}
 #card.pin .x{display:block}
 
@@ -103,6 +103,27 @@ button{font:inherit;cursor:pointer}
 .shot img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;display:block;background:var(--mist)}
 .shot figcaption{display:flex;gap:10px;align-items:baseline;padding-top:12px;font-size:15px}
 .shot figcaption b{font-weight:500}.shot figcaption span{color:var(--soft);font-size:14px}
+.sp{flex:none;width:min(80vw,400px);scroll-snap-align:start}
+.sp .ph{position:relative}
+.sp .ph>img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;display:block;background:var(--mist)}
+.sp .in{position:absolute;left:10px;bottom:10px;width:31%;padding:0;border:2px solid #fff;border-radius:8px;overflow:hidden;background:none;box-shadow:0 6px 16px #0004}
+.sp .in img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.sp .row{display:flex;gap:10px;align-items:center;margin:16px 0 6px}
+.sp .n{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:600 12px Inter;background:#1d1d1b;color:#fff;flex:none}
+.sp .n.area{background:var(--olive)}.sp .n.acc{background:var(--sand);color:#1d1d1b}
+.sp small{font-size:13px;color:var(--olive-ink);font-weight:500}
+.sp h3{margin-bottom:10px}
+.sp .f{font-family:Panchang;font-weight:400;font-size:14px;line-height:1.45;margin-bottom:8px;color:var(--ink)}
+.sp p{font-size:15px;color:var(--soft)}
+.mat .intro{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(28px,5vw,72px);align-items:center;margin-bottom:clamp(40px,6vw,80px)}
+.mat .intro img{width:100%;border-radius:14px;display:block}
+.mat .intro p{color:var(--soft);font-size:17px}
+.mgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.mgrid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block;margin-bottom:14px}
+.mgrid h3{margin-bottom:4px}.mgrid small{display:block;color:var(--olive-ink);font-weight:500;font-size:13px;margin-bottom:8px}
+.mgrid p{font-size:15px;color:var(--soft)}
+@media(max-width:900px){.mat .intro{grid-template-columns:minmax(0,1fr)}.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.mgrid{grid-template-columns:minmax(0,1fr)}}
 .arrows{display:flex;gap:8px}
 .arrows button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:18px}
 .posters{background:var(--mist)}
@@ -153,8 +174,8 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
 <nav class="nav">
   <a class="logo" href="#top">SAVIA</a>
   <div class="links">
-    <a href="#p1" data-go="1">Qué es</a><a href="#p2" data-go="2">Capas</a><a href="#p5" data-go="5">Recorrido</a>
-    <a href="#espacios">Espacios</a><a href="#piezas">Piezas gráficas</a><a href="#comunidad">Comunidad</a>
+    <a href="#p1" data-go="1">Acerca de</a><a href="#p2" data-go="2">Capas</a><a href="#p5" data-go="5">Recorrido</a>
+    <a href="#espacios">Espacios</a><a href="#materialidad">Materialidad</a><a href="#piezas">Piezas gráficas</a><a href="#comunidad">Comunidad</a>
   </div>
   <button class="btn" data-open="login">Iniciar sesión</button>
 </nav>
@@ -172,7 +193,7 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
       <p class="cred">Tesis de grado · Zimmermann – Riva – Cearras</p>
     </article>
     <article class="panel">
-      <span class="kick"><i></i>¿Qué es SAVIA?</span>
+      <span class="kick"><i></i>Acerca de SAVIA</span>
       <h2>La vida no se detiene: sigue fluyendo</h2>
       <p>Así como la savia recorre la planta desde las raíces y la nutre para que siga creciendo, SAVIA entiende la vejez como una etapa en la que la vitalidad evoluciona y encuentra nuevas formas.</p>
       <p>Es un ecosistema urbano-digital que recupera espacios en desuso y los transforma en lugares de bienestar, aprendizaje y encuentro, conectando a las personas mayores con la ciudad, con otras generaciones y con nuevas experiencias.</p>
@@ -229,9 +250,29 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
 
 <section class="band" id="espacios">
   <div class="wrap">
-    <div class="head rv"><div><span class="kick"><i></i>Espacios</span><h2>Cómo se vive SAVIA</h2></div>
+    <div class="head rv"><div><span class="kick"><i></i>Espacios</span><h2>Cómo se vive SAVIA</h2><p style="margin-top:12px">Cada área existe por una razón: esto es lo que aporta a quien la habita.</p></div>
       <div class="arrows"><button aria-label="Anterior" id="prev">←</button><button aria-label="Siguiente" id="next">→</button></div></div>
     <div class="rail rv" id="rail" tabindex="0"></div>
+  </div>
+</section>
+
+<section class="band mat" id="materialidad">
+  <div class="wrap">
+    <div class="intro">
+      <div class="rv">
+        <span class="kick"><i></i>Materialidad y morfología</span>
+        <h2 style="margin-bottom:20px">Hojas plegadas sobre la ciudad</h2>
+        <p>Las cubiertas nacen del mismo gesto que da nombre al proyecto. Como una hoja que se abre, cada techo se pliega en facetas, y sus aristas son las nervaduras por donde corre la savia. Ningún pabellón es igual a otro, pero todos hablan el mismo idioma, como las hojas de un mismo árbol.</p>
+        <p>El pliegue no es solo forma: le da rigidez a una cubierta liviana, multiplica las sombras sobre el jardín y conduce el agua de lluvia hacia los tanques recolectores. Debajo, la arquitectura se abre y se vuelve permeable, y adentro y afuera se confunden.</p>
+      </div>
+      <img class="rv" src="img/taller-cultural.webp" alt="Cubierta plegada del Taller Cultural vista desde arriba" loading="lazy">
+    </div>
+    <div class="mgrid">
+      <div class="rv"><img src="img/mat-pliegue.webp" alt="" loading="lazy" style="object-position:30% 20%"><small>La hoja</small><h3>Cubierta plegada</h3><p>Superficie blanca que refleja el sol y da sombra fresca; sus pliegues la vuelven liviana y firme a la vez.</p></div>
+      <div class="rv" style="transition-delay:.1s"><img src="img/mat-madera.webp" alt="" loading="lazy"><small>El tronco</small><h3>Madera</h3><p>Listones verticales y decks que aportan calidez y textura al tacto, filtran la luz como un bosque y marcan los recorridos.</p></div>
+      <div class="rv" style="transition-delay:.2s"><img src="img/mat-vidrio.webp" alt="" loading="lazy"><small>La transparencia</small><h3>Vidrio</h3><p>Fachadas vidriadas que dejan ver lo que pasa adentro: el taller invita, el jardín entra y nadie queda aislado.</p></div>
+      <div class="rv" style="transition-delay:.3s"><img src="img/mat-hormigon.webp" alt="" loading="lazy"><small>La raíz</small><h3>Hormigón</h3><p>Canteros con cordón de hormigón y caminos con bandas de madera: la base firme que sostiene y ordena el verde.</p></div>
+    </div>
   </div>
 </section>
 
@@ -273,7 +314,7 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
   <span>Tesis de grado · Zimmermann – Riva – Cearras</span>
 </footer>
 
-<div id="card" role="dialog" aria-live="polite"><button class="x" aria-label="Cerrar">✕</button><img alt=""><div class="tx"><div class="row"><span class="n"></span><small></small></div><h3></h3><p></p></div></div>
+<div id="card" role="dialog" aria-live="polite"><button class="x" aria-label="Cerrar">✕</button><img alt=""><div class="tx"><div class="row"><span class="n"></span><small></small></div><h3></h3><p class="f"></p><p class="d"></p></div></div>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
   <div class="box">
@@ -307,22 +348,23 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
 <script>
 {
 const Z={
-  'cultural':{n:'1',t:'Taller Cultural',e:'Mente Activa',img:'taller-cultural',d:'Talleres culturales y espacios de intercambio, sobre el cruce norte del recorrido.'},
-  'artistico':{n:'2',t:'Talleres Artístico / Oficios',e:'Mente Activa',img:'taller-artistico',d:'Pabellones vidriados abiertos al jardín para pintar, modelar y aprender oficios.'},
-  'cultivo':{n:'3',t:'Pabellones de cultivo',e:'Mente Activa',img:'cultivo',d:'Invernaderos de techo vidriado para sembrar, trasplantar y aprender en grupo.'},
-  'ejercitacion':{n:'4',t:'Área de ejercitación',e:'Vitalidad Física',img:'ejercitacion',d:'Gimnasio vidriado y clases guiadas por especialistas, junto al circuito al aire libre.'},
-  'cabinas':{n:'5',t:'Cabinas smart de salud',e:'Vitalidad Física',img:'cabina',d:'Controles básicos de salud y seguimiento personal; cada cabina con su conexión al camino.'},
-  'banos':{n:'6',t:'Baños',e:'Servicios',img:'banos',d:'Núcleo sanitario accesible sobre el brazo sur.'},
-  'yoga':{n:'7',t:'Yoga y meditación',e:'Vitalidad Física',img:'yoga',d:'Deck poligonal bajo velas, en la punta oeste del brazo norte.',area:1},
-  'jardines':{n:'8',t:'Jardines de estar',e:'Encuentro',img:'jardin',d:'Césped, bancos-tarima y pérgolas de sombra para quedarse y encontrarse.',area:1},
-  'huertas':{n:'9',t:'Huertas colaborativas',e:'Mente Activa',img:'cultivo',d:'Canteros altos y bajos y parcelas compartidas junto a los pabellones de cultivo.',area:1},
-  'acceso-thays':{n:'A',t:'Acceso Thays',e:'Bienvenida',img:'acceso-thays',d:'Recepción y orientación: el primer contacto con el ecosistema.',acc:1},
-  'acceso-puente':{n:'A',t:'Acceso Puente',e:'Bienvenida',img:'acceso-puente',d:'Recepción, mapa del ecosistema y personal que acompaña la llegada.',acc:1}
+  'cultural':{n:'1',t:'Taller Cultural',e:'Mente Activa',img:'taller-cultural',f:'Donde la memoria se vuelve conversación.',d:'Lectura, charlas e intercambio entre generaciones mantienen la mente despierta y convierten la experiencia de cada uno en saber compartido.'},
+  'artistico':{n:'2',t:'Talleres Artístico / Oficios',e:'Mente Activa',img:'taller-artistico',img2:'taller-arte-interior',f:'Las manos también piensan.',d:'Pintar, tallar o modelar estimula la coordinación, la concentración y la autoestima: cada obra es una forma nueva de seguir diciendo.'},
+  'cultivo':{n:'3',t:'Pabellones de cultivo',e:'Mente Activa',img:'cultivo',f:'Sembrar es creer en el mañana.',d:'Cuidar algo que crece da rutina, propósito y contacto con los ciclos de la naturaleza, aun en los días de frío o de lluvia.'},
+  'ejercitacion':{n:'4',t:'Área de ejercitación',e:'Vitalidad Física',img:'ejercitacion',f:'Un cuerpo que se mueve es un cuerpo que se sostiene.',d:'Fuerza, equilibrio y movilidad, con clases guiadas por especialistas, para prevenir caídas y sostener la autonomía en la vida diaria.'},
+  'cabinas':{n:'5',t:'Cabinas smart de salud',e:'Vitalidad Física',img:'cabina',f:'Cuidarse también es un hábito.',d:'Controles básicos y seguimiento personal, a mano, en el mismo lugar donde se pasa el día: la prevención se integra a la rutina.'},
+  'banos':{n:'6',t:'Baños',e:'Servicios',img:'banos',f:'La autonomía empieza por lo básico.',d:'Servicios accesibles y cercanos permiten quedarse más tiempo y moverse por el parque con confianza.'},
+  'yoga':{n:'7',t:'Yoga y meditación',e:'Vitalidad Física',img:'yoga',f:'Respirar, y volver a uno.',d:'La respiración y el movimiento consciente bajan el estrés, mejoran la flexibilidad y el equilibrio, y regalan un momento de calma bajo los árboles.',area:1},
+  'jardines':{n:'8',t:'Jardines de estar',e:'Encuentro',img:'jardin',img2:'estar-detalle',f:'Quedarse también es participar.',d:'Sombra, bancos-tarima y verde invitan a la pausa y a la charla espontánea: el encuentro casual es el mejor remedio contra el aislamiento.',area:1},
+  'huertas':{n:'9',t:'Huertas colaborativas',e:'Mente Activa',img:'huertas',f:'La tierra compartida da frutos compartidos.',d:'Trabajar la tierra en grupo combina movimiento suave, aprendizaje y conversación, y cada cosecha se vuelve un logro común.',area:1},
+  'acceso-thays':{n:'A',t:'Acceso Thays',e:'Bienvenida',img:'acceso-thays',f:'Toda raíz empieza en un umbral.',d:'Una recepción humana orienta, da confianza y convierte la primera visita en pertenencia.',acc:1},
+  'acceso-puente':{n:'A',t:'Acceso Puente',e:'Bienvenida',img:'acceso-puente',f:'Llegar acompañado es llegar mejor.',d:'Mapa del ecosistema y personal que recibe: nadie tiene que descubrir el lugar solo.',acc:1}
 };
 /* galería */
-const G=[['acceso-thays','Acceso Thays','Recepción'],['acceso-puente','Acceso Puente','Recepción'],['taller-artistico','Taller artístico','Mente Activa'],['cultivo','Pabellón de cultivo','Mente Activa'],['ejercitacion','Área de ejercitación','Vitalidad Física'],['cabina','Cabina smart de salud','Vitalidad Física'],['jardin','Jardín de estar','Encuentro'],['bancos','Bancos-tarima','Encuentro'],['banos','Baños','Servicios']];
+const G=['acceso-thays','acceso-puente','cultural','artistico','cultivo','huertas','ejercitacion','cabinas','yoga','jardines','banos'];
 const rail=document.getElementById('rail');
-rail.innerHTML=G.map(g=>`<figure class="shot"><img loading="lazy" src="img/${g[0]}.webp" alt="${g[1]}"><figcaption><b>${g[1]}</b><span>${g[2]}</span></figcaption></figure>`).join('');
+rail.innerHTML=G.map(k=>{const o=Z[k],c=o.acc?'acc':o.area?'area':'';return `<article class="sp"><div class="ph"><img loading="lazy" src="img/${o.img}.webp" alt="${o.t}">${o.img2?`<button class="in" aria-label="Ver otra vista"><img loading="lazy" src="img/${o.img2}.webp" alt=""></button>`:''}</div><div class="row"><span class="n ${c}">${o.n}</span><small>${o.e}</small></div><h3>${o.t}</h3><p class="f">${o.f}</p><p>${o.d}</p></article>`}).join('');
+rail.querySelectorAll('.in').forEach(b=>b.onclick=()=>{const m=b.parentNode.firstElementChild,i=b.firstElementChild,t=m.src;m.src=i.src;i.src=t});
 const step=d=>rail.scrollBy({left:d*(rail.firstElementChild.offsetWidth+18),behavior:'smooth'});
 document.getElementById('prev').onclick=()=>step(-1);document.getElementById('next').onclick=()=>step(1);
 rail.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){step(1);e.preventDefault()}if(e.key==='ArrowLeft'){step(-1);e.preventDefault()}});
@@ -368,7 +410,7 @@ function showCard(z,x,y,pin){
   const o=Z[z];if(!o)return;
   if(cardZ!==z){cImg.src='img/'+o.img+'.webp';cImg.alt=o.t;card.querySelector('.n').textContent=o.n;
     card.querySelector('.n').style.background=o.acc?'#C3A983':o.area?'#6F6A43':'#1d1d1b';card.querySelector('.n').style.color=o.acc?'#1d1d1b':'#fff';
-    card.querySelector('small').textContent=o.e;card.querySelector('h3').textContent=o.t;card.querySelector('p').textContent=o.d;cardZ=z}
+    card.querySelector('small').textContent=o.e;card.querySelector('h3').textContent=o.t;card.querySelector('.f').textContent=o.f;card.querySelector('.d').textContent=o.d;cardZ=z}
   pinned=!!pin;card.classList.toggle('pin',pinned);
   const w=card.offsetWidth,h=card.offsetHeight||320;
   let L,T;
