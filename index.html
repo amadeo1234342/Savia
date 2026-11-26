@@ -475,6 +475,7 @@ input[type=text],input[type=email],input[type=password]{display:block;width:100%
 <script src="js/three.min.js"></script>
 <script>
 {
+const V='?v=20261126b';   /* cambiar este número obliga a recargar las fotos */
 const Z={
   'cultural':{n:'1',t:'Taller Cultural',e:'Mente Activa',img:'taller-cultural',imgs:['taller-cultural-interior'],f:'Donde la memoria se vuelve conversación.',d:'Lectura, charlas e intercambio entre generaciones mantienen la mente despierta y convierten la experiencia de cada uno en saber compartido.'},
   'artistico':{n:'2',t:'Talleres Artístico / Oficios',e:'Mente Activa',img:'taller-artistico',imgs:['taller-arte-interior','taller-artistico-02'],f:'Las manos también piensan.',d:'Pintar, tallar o modelar estimula la coordinación, la concentración y la autoestima: cada obra es una forma nueva de seguir diciendo.'},
@@ -510,13 +511,13 @@ document.querySelectorAll('.kick i').forEach((el,i)=>el.style.setProperty('--k',
 /* galería */
 const G=['acceso-thays','acceso-puente','cultural','artistico','cultivo','huertas','ejercitacion','cabinas','yoga','jardines','banos'];
 const rail=document.getElementById('rail');
-rail.innerHTML=G.map(k=>{const o=Z[k],c=o.acc?'acc':o.area?'area':'';return `<article class="sp"><div class="ph"><img loading="lazy" src="img/${o.img}.webp" alt="${o.t}">${o.imgs?`<div class="ins">${o.imgs.map(x=>`<button class="in" aria-label="Ver otra vista"><img loading="lazy" src="img/${x}.webp" alt=""></button>`).join('')}</div>`:''}</div><div class="row"><span class="n ${c}">${o.n}</span><small>${o.e}</small></div><h3>${o.t}</h3><p class="f">${o.f}</p><p>${o.d}</p></article>`}).join('');
+rail.innerHTML=G.map(k=>{const o=Z[k],c=o.acc?'acc':o.area?'area':'';return `<article class="sp"><div class="ph"><img loading="lazy" src="img/${o.img}.webp${V}" alt="${o.t}">${o.imgs?`<div class="ins">${o.imgs.map(x=>`<button class="in" aria-label="Ver otra vista"><img loading="lazy" src="img/${x}.webp${V}" alt=""></button>`).join('')}</div>`:''}</div><div class="row"><span class="n ${c}">${o.n}</span><small>${o.e}</small></div><h3>${o.t}</h3><p class="f">${o.f}</p><p>${o.d}</p></article>`}).join('');
 rail.querySelectorAll('.in').forEach(b=>b.onclick=()=>{const m=b.closest('.ph').firstElementChild,i=b.firstElementChild,t=m.src;m.src=i.src;i.src=t});
-for(const k in Z)(Z[k].imgs||[]).forEach(x=>{const i=new Image();i.src='img/'+x+'.webp'});
+for(const k in Z)(Z[k].imgs||[]).forEach(x=>{const i=new Image();i.src='img/'+x+'.webp'+V});
 const step=d=>rail.scrollBy({left:d*(rail.firstElementChild.offsetWidth+18),behavior:'smooth'});
 document.getElementById('prev').onclick=()=>step(-1);document.getElementById('next').onclick=()=>step(1);
 rail.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){step(1);e.preventDefault()}if(e.key==='ArrowLeft'){step(-1);e.preventDefault()}});
-for(const k in Z){const i=new Image();i.src='img/'+Z[k].img+'.webp'}
+for(const k in Z){const i=new Image();i.src='img/'+Z[k].img+'.webp'+V}
 
 /* reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
@@ -544,7 +545,7 @@ addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onS
 const card=document.getElementById('card'),cImg=card.querySelector('img');let cardZ=null,pinned=false;
 function showCard(z,x,y,pin){
   const o=Z[z];if(!o)return;
-  if(cardZ!==z){cImg.src='img/'+o.img+'.webp';cImg.alt=o.t;card.querySelector('.n').textContent=o.n;
+  if(cardZ!==z){cImg.src='img/'+o.img+'.webp'+V;cImg.alt=o.t;card.querySelector('.n').textContent=o.n;
     card.querySelector('.n').style.background=o.acc?'#C3A983':o.area?'#6F6A43':'#1d1d1b';card.querySelector('.n').style.color=o.acc?'#1d1d1b':'#fff';
     card.querySelector('small').textContent=o.e;card.querySelector('h3').textContent=o.t;card.querySelector('.f').textContent=o.f;card.querySelector('.d').textContent=o.d;cardZ=z}
   pinned=!!pin;card.classList.toggle('pin',pinned);
